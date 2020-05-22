@@ -21,7 +21,7 @@ main() {
 
   if uses "${INPUT_TAGS}"; then
     TAGS=$(echo "${INPUT_TAGS}" | sed "s/,/ /g")
-  else 
+  else
     translateDockerTag
   fi
 
@@ -145,7 +145,7 @@ useSnapshot() {
   local TIMESTAMP=`date +%Y%m%d%H%M%S`
   local SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-6)
   local SNAPSHOT_TAG="${TIMESTAMP}${SHORT_SHA}"
-  TAGS="${TAGS} ${SNAPSHOT_TAG}"
+  TAGS="${SNAPSHOT_TAG} ${TAGS}"
   echo "::set-output name=snapshot-tag::${SNAPSHOT_TAG}"
 }
 
